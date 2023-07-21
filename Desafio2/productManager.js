@@ -1,4 +1,4 @@
-import { promises as fs, writeFile } from "fs";
+import { promises as fs } from "fs";
 
 class ProductManager {
   constructor() {
@@ -67,7 +67,6 @@ class ProductManager {
 }
 
 //Prueba
-
 const product = new ProductManager();
 product.addProduct(
   "Producto prueba1",
