@@ -1,0 +1,38 @@
+[
+    {
+        "title": "Camiseta Local Barcelona",
+        "description": "Camiseta de local del FC Barcelona",
+        "price": 80,
+        "code": "BAR001",
+        "stock": 150,
+        "category": "Camisetas de Fútbol",
+        "id": 1
+    },
+    {
+        "title": "Camiseta Visitante Real Madrid",
+        "description": "Camiseta de visitante del Real Madrid",
+        "price": 75,
+        "code": "RMA002",
+        "stock": 120,
+        "category": "Camisetas de Fútbol",
+        "id": 2
+    },
+    {
+        "title": "Camiseta Tercera Manchester United",
+        "description": "Tercera camiseta del Manchester United",
+        "price": 90,
+        "code": "MNU003",
+        "stock": 100,
+        "category": "Camisetas de Fútbol",
+        "id": 3
+    },
+    {
+        "title": "Camiseta Local Juventus",
+        "description": "Camiseta de local de la Juventus",
+        "price": 70,
+        "code": "JUV004",
+        "stock": 80,
+        "category": "Camisetas de Fútbol",
+        "id": 4
+    }
+]
