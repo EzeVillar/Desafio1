@@ -14,11 +14,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(`${__dirname}/public`));
 
-app.engine("handlebars", handlebars.engine());
+app.engine("handlebars", handlebars());
 app.set("view engine", "handlebars");
 app.set("views", `${__dirname}/views`);
 
-//rutas
+// Rutas
 app.use("/api/products", productsRouter);
 app.use("/api/carts", cartsRouter);
 app.use("/", viewsRouter);
@@ -26,14 +26,15 @@ app.use("/", viewsRouter);
 const httpServer = app.listen(PORT, () => {
   console.log(`Servidor escuchando en el puerto ${PORT}`);
 });
+
 const pmanager = new ProductManager(__dirname + "/files/products.json");
 const socketServer = new Server(httpServer);
 
 socketServer.on("connection", async (socket) => {
-  console.log("Cliente conectado con id: ", socket.id);
+  console.log("Cliente conectado con id:", socket.id);
 
   const listProducts = await pmanager.getProducts({});
-  socketServer.emit("sendProducts", listProducts);
+  socket.emit("sendProducts", listProducts);
 
   socket.on("addProduct", async (obj) => {
     await pmanager.addProduct(obj);
@@ -46,6 +47,7 @@ socketServer.on("connection", async (socket) => {
     const listProducts = await pmanager.getProducts({});
     socketServer.emit("sendProducts", listProducts);
   });
+
   socket.on("disconnect", () => {
     console.log("Cliente desconectado");
   });
